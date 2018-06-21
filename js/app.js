@@ -22,7 +22,12 @@ methods:{
     this.playerAttack(15,5);
  },
  heal:function (){
-
+    if(this.playerHealth <=90){
+        this.playerHealth += 10 ;
+    }else{
+        this.playerHealth = 100;
+    }
+    this.playerAttack(12,5);
  },
  giveUp:function(){
 
@@ -36,6 +41,7 @@ methods:{
 playerAttack:function(max,min){
     this.playerHealth -= this.calculateDamage(max,min);
     this.chackwin();
+    return
 },
  calculateDamage:function (max , min){
      return Math.max(Math.floor(Math.random() * max ) + 1, min);
